@@ -11,13 +11,13 @@ $pri                = 0;
 $DECRIPTO           = "";
 
 while($I <= $LEN){
-    $letra_ori = substr($PALAVRA_CHAVE,$pri,1);
-    $letra_cha = substr($PALAVRA_CRYPTO,$pri,1);
+    $letra_chave  = substr($PALAVRA_CHAVE,$pri,1);
+    $letra_crypto = substr($PALAVRA_CRYPTO,$pri,1);
 
-    $valor_1 = $CHAVES_LETRA[$letra_ori];
-    $valor_2 = $CHAVES_LETRA[$letra_cha];
+    $valor_chave = $CHAVES_LETRA[$letra_chave];
+    $valor_crypto = $CHAVES_LETRA[$letra_crypto];
     
-    $valor = $valor_2 - $valor_1;
+    $valor = $valor_crypto - $valor_chave;
     if($valor < 0){
         $valor = $valor + 26;
     }

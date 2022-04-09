@@ -18,6 +18,7 @@ while($I <= $LEN){
     $valor_2 = $CHAVES_LETRA[$letra_cha];
     
     $valor = $valor_1 + $valor_2;
+    
     if($valor > 25){
         $valor = $valor / 26;
         $valor = substr($valor,0,3);
