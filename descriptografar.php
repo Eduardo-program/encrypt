@@ -9,17 +9,22 @@
   <meta name="author" content="Eduardo Garcia">
 </head>
 <body>
-<a href="descriptografar.php">
-    <button style="border-radius: 6px; border: none; cursor: pointer; font-size: 16px;">Decrypter</button>
+<a href="index.php">
+    <button style="border-radius: 6px; border: none; cursor: pointer; font-size: 16px;">Encrypter</button>
 </a>
-<form action="encrypter.php" method="post">
+<form action="decrypter.php" method="post">
     <div>
-        <label for="palavra">Palavra:</label>
-        <input type="text" id="palavra" name="palavra" />
+        <label for="chave">Chave:</label>
+        <input type="text" id="chave" name="chave" />
+    </div>
+
+    <div>
+        <label for="crypto">Criptografia:</label>
+        <input type="text" id="crypto" name="crypto" />
     </div>
 
     <div class="button">
-        <button type="submit">Criptografar</button>
+        <button type="submit">Descriptografar</button>
     </div>
 </form>
 

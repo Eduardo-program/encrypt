@@ -57,54 +57,32 @@ $CHAVES_NUMERO = array(
     25 => "Z"
 );
 
-/*
+$PALAVRA_CHAVE  = strtoupper($_POST['chave']);
+$PALAVRA_CRYPTO = strtoupper($_POST['crypto']);
 
-*/
-
-
-$PALAVRA_ORIGINAL   = strtoupper($_POST['palavra']); // RECEBO A PALAVRA ORIGINAL
-$LEN                = strlen($PALAVRA_ORIGINAL); // RECUPERO A QUANTIDADE DE CARACTERES
-$PALAVRA_CHAVE      = geraString($LEN); // GERO UM STRING ALEATORIA COM A MESMA QUANTIDADE DE CARACTERES DA PALAVRA ORIGINAL
+$LEN                = strlen($PALAVRA_CHAVE); // RECUPERO A QUANTIDADE DE CARACTERES
 $I                  = 1;
 $pri                = 0;
-$CRIPTO             = "";
+$DECRIPTO           = "";
 
 while($I <= $LEN){
-    $letra_ori = substr($PALAVRA_ORIGINAL,$pri,1);
-    $letra_cha = substr($PALAVRA_CHAVE,$pri,1);
+    $letra_ori = substr($PALAVRA_CHAVE,$pri,1);
+    $letra_cha = substr($PALAVRA_CRYPTO,$pri,1);
 
     $valor_1 = $CHAVES_LETRA[$letra_ori];
     $valor_2 = $CHAVES_LETRA[$letra_cha];
     
-    $valor = $valor_1 + $valor_2;
-    if($valor > 25){
-        $valor = $valor / 26;
-        $valor = number_format($valor,1,'.','');
-        $valor = str_replace('.','',$valor);
+    $valor = $valor_2 - $valor_1;
+    if($valor < 0){
+        $valor = $valor + 26;
     }
     $letra = $CHAVES_NUMERO[$valor];
 
-    $CRIPTO .= $letra;
+    $DECRIPTO .= $letra;
 
     $pri++;
     $I++;
 }
 
-echo '        PALAVRA CHAVE: <b>' . $PALAVRA_CHAVE . '</b><br>';
-echo 'PALAVRA CRIPTOGRAFADA: <b>' . $CRIPTO . '</b><br>';
-exit;
-
-
-function geraString($LEN){ // FUNCAO RESPONSAVEL POR GERAR A PALAVRA CHAVE
-    $alfabeto   = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $tamanho    = strlen($alfabeto);
-    $LEN        = $LEN;
-    $chave      = "";
-    for( $x = 1; $x <= $LEN; $x++ ) {  
-        $chave .= $alfabeto[ rand( 0, $tamanho - 1 ) ];  
-    }
-    return $chave;
-}
-
-
+echo $DECRIPTO;
 ?>
