@@ -20,7 +20,7 @@ while($I <= $LEN){
     $valor = $valor_1 + $valor_2;
     
     if($valor > 25){
-        $valor = $valor / 26;
+        $valor = $valor % 26;
         $valor = substr($valor,0,3);
         $valor = str_replace('.','',$valor);
     }
